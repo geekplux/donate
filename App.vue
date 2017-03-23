@@ -6,9 +6,9 @@
           if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
         </p>
         <div class="buttons">
-          <button>Paypal</button>
-          <button>Alipay</button>
-          <button>WeChat</button>
+          <button @click="alipayClick">Alipay</button>
+          <button @click="wechatClick">WeChat</button>
+          <button @click="paypalClick">PayPal</button>
         </div>
         <ul class="links">
           <hr/>
@@ -22,8 +22,11 @@
     </div>
     <div class="image">
       <div class="img-wrap">
-        <div class="blur"></div>
+        <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
         <img alt="" :src="img"/>
+        <div v-if="paypal" class="paypal">
+          <h3>PayPal</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -31,12 +34,31 @@
 
 <script>
   import desktop from './images/desktop.jpg'
+  import alipayQR from './images/alipayQR.jpg'
+  import wechatQR from './images/wechatQR.jpg'
 
   export default {
     name: 'app',
     data() {
       return {
         img: desktop
+      }
+    },
+    computed: {
+      paypal() {
+        return this.img === desktop
+      }
+    },
+    methods: {
+      paypalClick() {
+        this.img = desktop
+        window.open('https://www.paypal.me/geekplux')
+      },
+      alipayClick() {
+        this.img = alipayQR
+      },
+      wechatClick() {
+        this.img = wechatQR
       }
     }
   }
@@ -87,7 +109,12 @@
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  .blur-35 {
     background: rgba(0, 0, 0, 0.35);
+  }
+  .blur-10 {
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .content {
@@ -95,7 +122,7 @@
     padding-left: 100px;
   }
 
-  h1 {
+  h1, h3 {
     font-family: Impact, Charcoal, sans-serif;
     font-size: 40px;
     letter-spacing: 2px;
@@ -154,5 +181,15 @@
     height: 1px;
     border: 0;
     background-image: -webkit-linear-gradient(0deg, #888, #888, #eee);
+  }
+
+  .paypal {
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    transform: translateY(-50%);
   }
 </style>
