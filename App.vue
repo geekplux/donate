@@ -1,9 +1,6 @@
 <template>
   <div id="app" class="app">
-    <div class="container">
-      <div class="blur"></div>
-      <img alt="" :src="img"/>
-      <div class="content">
+    <div class="content">
         <h1>Donation</h1>
         <p>
           if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
@@ -18,6 +15,11 @@
           <li><a href="https://twitter.com/geekplux">Twitter</a></li>
           <li><a href="http://geekplux.com/about">About</a></li>
         </ul>
+    </div>
+    <div class="image">
+      <div class="img-wrap">
+        <div class="blur"></div>
+        <img alt="" :src="img"/>
       </div>
     </div>
   </div>
@@ -46,45 +48,39 @@
 
   .app {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
-  .container {
+  .image {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-wrap {
     position: relative;
     width: 450px;
     height: 450px;
-    background-color: #eee;
     box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .45);
   }
-
   img {
     width: 100%;
     height: 100%;
     border: 0;
   }
 
-  .blur,
-  .content {
+  .blur {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 0;
     bottom: 0;
-  }
-
-  .blur {
-    background: rgba(0, 0, 0, 0.55);
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.35);
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
+    width: 30%;
+    padding-left: 100px;
   }
 
   h1 {
@@ -98,13 +94,14 @@
     width: 80%;
     font-weight: lighter;
     font-size: 16px;
+    margin-bottom: 80px;
   }
 
   button {
     margin: auto 0 0 0;
-    border: 3px solid #fff;
+    border: 3px solid #000;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     padding: 8px 40px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -114,8 +111,8 @@
     transition: .5s;
   }
   button:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
   }
 
   ul {
@@ -127,7 +124,7 @@
     margin: 0 5px;
   }
   li a {
-    color: #fff;
+    color: #000;
     font-weight: lighter;
     text-decoration: none;
   }
@@ -135,20 +132,6 @@
   hr {
     height: 1px;
     border: 0;
-    background-image: -webkit-linear-gradient(0deg, #888, #eee, #888);
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      width: 320px;
-      height: 320px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .container {
-      width: 250px;
-      height: 250px;
-    }
+    background-image: -webkit-linear-gradient(0deg, #888, #888, #eee);
   }
 </style>
