@@ -1,0 +1,3 @@
+# Donate
+
+> Donation page.

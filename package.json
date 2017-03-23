@@ -1,0 +1,11 @@
+{
+  "name": "donate",
+  "version": "0.0.0",
+  "description": "Donation page",
+  "main": "index.js",
+  "author": "geekplux@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "vbuild": "^6.24.8"
+  }
+}
