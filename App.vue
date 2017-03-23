@@ -5,7 +5,11 @@
         <p>
           if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
         </p>
-        <button>donate</button>
+        <div class="buttons">
+          <button>Paypal</button>
+          <button>Alipay</button>
+          <button>WeChat</button>
+        </div>
         <ul class="links">
           <hr/>
           <li><a href="http://geekplux.com/archives">Blog</a></li>
@@ -49,6 +53,8 @@
   .app {
     display: flex;
     align-items: center;
+    min-width: 1000px;
+    overflow-x: scroll;
   }
 
   .image {
@@ -91,18 +97,27 @@
   }
 
   p {
-    width: 80%;
     font-weight: lighter;
     font-size: 16px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+  }
+
+  .buttons {
+    display: flex;
+    border: 3px solid #000;
+    border-right: 0;
+    margin-bottom: 40px;
   }
 
   button {
-    margin: auto 0 0 0;
-    border: 3px solid #000;
+    flex: 1;
+    border: 0;
+    box-sizing: border-box;
+    border-right: 3px solid #000;
+    margin: 0;
+    padding: 10px 20px;
     background-color: transparent;
     color: #000;
-    padding: 8px 40px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
