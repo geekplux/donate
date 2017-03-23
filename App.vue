@@ -63,11 +63,17 @@
     align-items: center;
     justify-content: center;
   }
+  .image:hover .img-wrap {
+    transform-style: preserve-3d;
+    transform: perspective(600px) rotateY(-5deg);
+  }
+
   .img-wrap {
     position: relative;
     width: 450px;
     height: 450px;
     box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .45);
+    transition: .5s;
   }
   img {
     width: 100%;
