@@ -1,8 +1,14 @@
 {
-  "name": "donate",
+  "name": "Donate",
   "version": "0.0.0",
   "description": "Donation page",
   "main": "index.js",
+  "scripts": {
+    "dev": "vbuild -dc",
+    "build": "vbuild -c",
+    "deploy": "npm run build && gh-pages -d dist",
+    "test": "echo 'no tests!' && npm run deploy"
+  },
   "author": "geekplux@gmail.com",
   "license": "MIT",
   "devDependencies": {
