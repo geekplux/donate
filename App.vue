@@ -1,36 +1,54 @@
 <template>
   <div id="app" class="app">
-    <div class="parallax">
-      <div class="parallax-top-left parallax-dir"></div>
-      <div class="parallax-top-right parallax-dir"></div>
-      <div class="parallax-bottom-left parallax-dir"></div>
-      <div class="parallax-bottom-right parallax-dir"></div>
-      <div class="parallax-content">
-        <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
-        <div class="parallax-front">
-          <div class="content">
-            <h1>Donation</h1>
-            <p>
-              if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
-            </p>
-            <div class="buttons">
-              <button @click="alipayClick">Alipay</button>
-              <button @click="wechatClick">WeChat</button>
-              <button @click="paypalClick">PayPal</button>
-            </div>
-            <ul class="links">
-              <hr/>
-              <li><a href="http://geekplux.com/archives">Blog</a></li>
-              <li><a href="http://geekplux.com/wiki">Wiki</a></li>
-              <li><a href="https://github.com/geekplux">GitHub</a></li>
-              <li><a href="https://www.instagram.com/geekplux">Instagram</a></li>
-              <li><a href="https://twitter.com/geekplux">Twitter</a></li>
-              <li><a href="http://geekplux.com/about">About</a></li>
-            </ul>
+    <div class="content">
+      <h1>Donation</h1>
+      <p>
+        if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
+      </p>
+      <div class="buttons">
+        <button @click="alipayClick">Alipay</button>
+        <button @click="wechatClick">WeChat</button>
+        <button @click="paypalClick">PayPal</button>
+      </div>
+      <ul class="links">
+        <hr/>
+        <li><a href="http://geekplux.com/archives">Blog</a></li>
+        <li><a href="http://geekplux.com/wiki">Wiki</a></li>
+        <li><a href="https://github.com/geekplux">GitHub</a></li>
+        <li><a href="https://www.instagram.com/geekplux">Instagram</a></li>
+        <li><a href="https://twitter.com/geekplux">Twitter</a></li>
+        <li><a href="http://geekplux.com/about">About</a></li>
+      </ul>
+    </div>
+    <div class="qrcode-imgs">
+      <div class="parallax">
+        <div class="parallax-top-left parallax-dir"></div>
+        <div class="parallax-top-right parallax-dir"></div>
+        <div class="parallax-bottom-left parallax-dir"></div>
+        <div class="parallax-bottom-right parallax-dir"></div>
+        <div class="parallax-content">
+          <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
+          <div class="parallax-front">
+            <h2>Alipay</h2>
+          </div>
+          <div class="parallax-back">
+            <img class="back-img" alt="" :src="img"/>
           </div>
         </div>
-        <div class="parallax-back">
-          <img class="back-img" alt="" :src="img"/>
+      </div>
+      <div class="parallax">
+        <div class="parallax-top-left parallax-dir"></div>
+        <div class="parallax-top-right parallax-dir"></div>
+        <div class="parallax-bottom-left parallax-dir"></div>
+        <div class="parallax-bottom-right parallax-dir"></div>
+        <div class="parallax-content">
+          <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
+          <div class="parallax-front">
+            <h2>WeChat</h2>
+          </div>
+          <div class="parallax-back">
+            <img class="back-img" alt="" :src="img"/>
+          </div>
         </div>
       </div>
     </div>
@@ -84,10 +102,14 @@
     align-items: center;
   }
 
+  .qrcode-imgs {
+    display: flex;
+  }
+
   .back-img {
     display: block;
-    width: 80vmin;
-    height: 80vmin;
+    width: 40vmin;
+    height: 40vmin;
   }
 
   .blur {
@@ -124,7 +146,7 @@
 
   .buttons {
     display: flex;
-    border: 3px solid #fff;
+    border: 3px solid #000;
     border-right: 0;
     margin-bottom: 40px;
   }
@@ -133,11 +155,11 @@
     flex: 1;
     border: 0;
     box-sizing: border-box;
-    border-right: 3px solid #fff;
+    border-right: 3px solid #000;
     margin: 0;
     padding: 10px 20px;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -147,7 +169,7 @@
   }
   button:hover {
     background-color: #000;
-    color: #fff;
+    color: #000;
   }
 
   ul {
@@ -159,7 +181,7 @@
     margin: 0 5px;
   }
   li a {
-    color: #fff;
+    color: #000;
     font-weight: lighter;
     text-decoration: none;
   }
@@ -167,7 +189,7 @@
   hr {
     height: 1px;
     border: 0;
-    background-image: -webkit-linear-gradient(0deg, #fff, #ddd, #aaa);
+    background-image: -webkit-linear-gradient(0deg, #000, #aaa, #fff);
   }
 
   .paypal {
@@ -188,6 +210,10 @@
     position: relative;
     width: auto;
   }
+  .parallax:first-child {
+    margin-right: 10vw;
+  }
+
 
   .parallax-content {
     height: auto;
