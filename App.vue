@@ -1,31 +1,35 @@
 <template>
   <div id="app" class="app">
-    <div class="content">
-        <h1>Donation</h1>
-        <p>
-          if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
-        </p>
-        <div class="buttons">
-          <button @click="alipayClick">Alipay</button>
-          <button @click="wechatClick">WeChat</button>
-          <button @click="paypalClick">PayPal</button>
+    <div class="parallax">
+      <div class="parallax-top-left parallax-dir"></div>
+      <div class="parallax-top-right parallax-dir"></div>
+      <div class="parallax-bottom-left parallax-dir"></div>
+      <div class="parallax-bottom-right parallax-dir"></div>
+      <div class="parallax-content">
+        <div class="parallax-front">
+          <div class="content">
+            <h1>Donation</h1>
+            <p>
+              if you enjoy my works, you could donate to me. It’s the best rewards and I’ll use these money to learn more. Thank you.
+            </p>
+            <div class="buttons">
+              <button @click="alipayClick">Alipay</button>
+              <button @click="wechatClick">WeChat</button>
+              <button @click="paypalClick">PayPal</button>
+            </div>
+            <ul class="links">
+              <hr/>
+              <li><a href="http://geekplux.com/archives">Blog</a></li>
+              <li><a href="http://geekplux.com/wiki">Wiki</a></li>
+              <li><a href="https://github.com/geekplux">GitHub</a></li>
+              <li><a href="https://www.instagram.com/geekplux">Instagram</a></li>
+              <li><a href="https://twitter.com/geekplux">Twitter</a></li>
+              <li><a href="http://geekplux.com/about">About</a></li>
+            </ul>
+          </div>
         </div>
-        <ul class="links">
-          <hr/>
-          <li><a href="http://geekplux.com/archives">Blog</a></li>
-          <li><a href="http://geekplux.com/wiki">Wiki</a></li>
-          <li><a href="https://github.com/geekplux">GitHub</a></li>
-          <li><a href="https://www.instagram.com/geekplux">Instagram</a></li>
-          <li><a href="https://twitter.com/geekplux">Twitter</a></li>
-          <li><a href="http://geekplux.com/about">About</a></li>
-        </ul>
-    </div>
-    <div class="image">
-      <div class="img-wrap">
-        <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
-        <img alt="" :src="img"/>
-        <div v-if="paypal" class="paypal">
-          <h3>PayPal</h3>
+        <div class="parallax-back">
+          <img class="back-img" alt="" :src="img"/>
         </div>
       </div>
     </div>
@@ -79,28 +83,9 @@
     overflow-x: scroll;
   }
 
-  .image {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .image:hover .img-wrap {
-    transform-style: preserve-3d;
-    transform: perspective(600px) rotateY(-5deg);
-  }
-
-  .img-wrap {
-    position: relative;
-    width: 450px;
-    height: 450px;
-    box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .45);
-    transition: .5s;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    border: 0;
+  .back-img {
+    width: 50vmin;
+    height: 50vmin;
   }
 
   .blur {
@@ -191,5 +176,119 @@
     width: 100%;
     margin: 0 auto;
     transform: translateY(-50%);
+  }
+
+
+
+  .parallax {
+    display: block;
+    height: auto;
+    position: relative;
+    width: auto;
+  }
+
+  .parallax-content {
+    height: auto;
+    transform: perspective(100rem);
+    transform-style: preserve-3d;
+    transition: all .4s ease;
+    width: 100%;
+    box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .45);
+  }
+  .parallax-content:before {
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+
+  .parallax-front {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 3rem fade(#212121, 95%);
+    top: 0;
+    transform: translateZ(10rem);
+    transition: all .4s ease;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .parallax-top-left {
+    left: 0;
+    top: 0;
+  }
+  .parallax-top-left:hover ~ .parallax-content {
+    transform: perspective(100rem) rotateX(-3deg) rotateY(3deg);
+  }
+  .parallax-top-left:hover ~ .parallax-content:before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%);
+  }
+  .parallax-top-left:hover ~ .parallax-content .parallax-front {
+    transform: translate3d(-0.65rem, -0.65rem, 10rem);
+  }
+
+
+  .parallax-top-right {
+    right: 0;
+    top: 0;
+  }
+  .parallax-top-right:hover ~ .parallax-content {
+    transform: perspective(100rem) rotateX(-3deg) rotateY(-3deg);
+  }
+  .parallax-top-right:hover ~ .parallax-content:before {
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%);
+  }
+  .parallax-top-right:hover ~ .parallax-content .parallax-front {
+    transform: translate3d(0.65rem, -0.65rem, 10rem);
+  }
+
+
+  .parallax-bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  .parallax-bottom-left:hover ~ .parallax-content {
+    transform: perspective(100rem) rotateX(3deg) rotateY(3deg);
+  }
+  .parallax-bottom-left:hover ~ .parallax-content:before {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%);
+  }
+  .parallax-bottom-left:hover ~ .parallax-content .parallax-front {
+    transform: translate3d(-0.65rem, 0.65rem, 10rem);
+  }
+
+
+
+  .parallax-bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  .parallax-bottom-right:hover ~ .parallax-content {
+    transform: perspective(100rem) rotateX(3deg) rotateY(-3deg);
+  }
+  .parallax-bottom-right:hover ~ .parallax-content:before {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%);
+  }
+  .parallax-bottom-right:hover ~ .parallax-content .parallax-front {
+    transform: translate3d(0.65rem, 0.65rem, 10rem);
+  }
+
+
+
+  .parallax-dir {
+    height: 50%;
+    position: absolute;
+    width: 50%;
+    z-index: 1;
   }
 </style>
