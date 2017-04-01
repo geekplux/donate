@@ -6,6 +6,7 @@
       <div class="parallax-bottom-left parallax-dir"></div>
       <div class="parallax-bottom-right parallax-dir"></div>
       <div class="parallax-content">
+        <div class="blur" :class="[ paypal ? 'blur-35' : 'blur-10' ]"></div>
         <div class="parallax-front">
           <div class="content">
             <h1>Donation</h1>
@@ -84,6 +85,7 @@
   }
 
   .back-img {
+    display: block;
     width: 80vmin;
     height: 80vmin;
   }
@@ -103,8 +105,8 @@
   }
 
   .content {
-    width: 30%;
-    padding-left: 100px;
+    width: 70%;
+    text-align: left;
   }
 
   h1, h3 {
@@ -122,7 +124,7 @@
 
   .buttons {
     display: flex;
-    border: 3px solid #000;
+    border: 3px solid #fff;
     border-right: 0;
     margin-bottom: 40px;
   }
@@ -131,11 +133,11 @@
     flex: 1;
     border: 0;
     box-sizing: border-box;
-    border-right: 3px solid #000;
+    border-right: 3px solid #fff;
     margin: 0;
     padding: 10px 20px;
     background-color: transparent;
-    color: #000;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -157,7 +159,7 @@
     margin: 0 5px;
   }
   li a {
-    color: #000;
+    color: #fff;
     font-weight: lighter;
     text-decoration: none;
   }
@@ -165,7 +167,7 @@
   hr {
     height: 1px;
     border: 0;
-    background-image: -webkit-linear-gradient(0deg, #888, #888, #eee);
+    background-image: -webkit-linear-gradient(0deg, #fff, #ddd, #aaa);
   }
 
   .paypal {
@@ -215,7 +217,6 @@
     left: 0;
     position: absolute;
     text-align: center;
-    text-shadow: 0 0 3rem fade(#212121, 95%);
     top: 0;
     transform: translateZ(10rem);
     transition: all .4s ease;
