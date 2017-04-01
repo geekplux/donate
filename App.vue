@@ -78,14 +78,14 @@
 
   .app {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    min-width: 1000px;
-    overflow-x: scroll;
   }
 
   .back-img {
-    width: 50vmin;
-    height: 50vmin;
+    width: 80vmin;
+    height: 80vmin;
   }
 
   .blur {
