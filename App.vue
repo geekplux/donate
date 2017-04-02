@@ -22,7 +22,7 @@
           <h2>GeekPlux</h2>
         </div>
         <div class="parallax-back">
-          <img class="back-img" alt="" :src="alipayQR"/>
+          <img class="back-img" alt="" :src="img"/>
         </div>
       </div>
     </div>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+  import desktop from './images/desktop.jpg'
   import alipayQR from './images/alipayQR.jpg'
   import wechatQR from './images/wechatQR.jpg'
 
@@ -47,10 +48,26 @@
     name: 'app',
     data() {
       return {
-        alipayQR: alipayQR,
-        wechatQR: wechatQR
+        img: desktop
       }
     },
+    computed: {
+      paypal() {
+        return this.img === desktop
+      }
+    },
+    methods: {
+      paypalClick() {
+        this.img = desktop
+        window.open('https://www.paypal.me/geekplux')
+      },
+      alipayClick() {
+        this.img = alipayQR
+      },
+      wechatClick() {
+        this.img = wechatQR
+      }
+    }
   }
 </script>
 
@@ -108,6 +125,7 @@
   }
 
   p {
+    max-width: 450px;
     font-weight: lighter;
     font-size: 16px;
     margin-bottom: 8vh;
