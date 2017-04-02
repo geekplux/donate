@@ -11,35 +11,18 @@
       <button @click="wechatClick">WeChat</button>
       <button @click="paypalClick">PayPal</button>
     </div>
-    <div class="qrcode-imgs">
-      <div class="parallax">
-        <div class="parallax-top-left parallax-dir"></div>
-        <div class="parallax-top-right parallax-dir"></div>
-        <div class="parallax-bottom-left parallax-dir"></div>
-        <div class="parallax-bottom-right parallax-dir"></div>
-        <div class="parallax-content">
-          <div class="blur"></div>
-          <div class="parallax-front">
-            <h2>Alipay</h2>
-          </div>
-          <div class="parallax-back">
-            <img class="back-img" alt="" :src="alipayQR"/>
-          </div>
+    <div class="parallax qrcode-imgs">
+      <div class="parallax-top-left parallax-dir"></div>
+      <div class="parallax-top-right parallax-dir"></div>
+      <div class="parallax-bottom-left parallax-dir"></div>
+      <div class="parallax-bottom-right parallax-dir"></div>
+      <div class="parallax-content">
+        <div class="blur"></div>
+        <div class="parallax-front">
+          <h2>GeekPlux</h2>
         </div>
-      </div>
-      <div class="parallax">
-        <div class="parallax-top-left parallax-dir"></div>
-        <div class="parallax-top-right parallax-dir"></div>
-        <div class="parallax-bottom-left parallax-dir"></div>
-        <div class="parallax-bottom-right parallax-dir"></div>
-        <div class="parallax-content">
-          <div class="blur"></div>
-          <div class="parallax-front">
-            <h2>WeChat</h2>
-          </div>
-          <div class="parallax-back">
-            <img class="back-img" alt="" :src="wechatQR"/>
-          </div>
+        <div class="parallax-back">
+          <img class="back-img" alt="" :src="alipayQR"/>
         </div>
       </div>
     </div>
@@ -83,15 +66,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 70%;
+    align-items: flex-start;
+    width: 60%;
     margin: 0 auto;
   }
 
   .qrcode-imgs {
-    width: 100%;
-    display: flex;
-    margin-top: 6vh;
+    margin-top: 4vh;
   }
 
   .back-img {
@@ -115,24 +96,28 @@
   }
 
   h1, h3 {
+    margin: 0;
     font-family: Impact, Charcoal, sans-serif;
     font-size: 40px;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
 
+  h2 {
+    font-size: 12px;
+  }
+
   p {
     font-weight: lighter;
     font-size: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 8vh;
   }
 
   .buttons {
     display: flex;
-    align-self: flex-start;
     border: 3px solid #000;
     border-right: 0;
-    margin-bottom: 40px;
+    margin-bottom: 2vh;
   }
 
   button {
@@ -145,7 +130,7 @@
     background-color: transparent;
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     outline: none;
     cursor: pointer;
@@ -153,12 +138,11 @@
   }
   button:hover {
     background-color: #000;
-    color: #000;
+    color: #fff;
   }
 
   footer {
-    margin-top: 10vh;
-    align-self: flex-start;
+    margin-top: 6vh;
   }
 
   ul {
@@ -194,7 +178,7 @@
     transform-style: preserve-3d;
     transition: all .4s ease;
     width: 100%;
-    box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .45);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, .45);
   }
   .parallax-content:before {
     content: "";
@@ -269,7 +253,6 @@
   }
 
 
-
   .parallax-bottom-right {
     bottom: 0;
     right: 0;
@@ -283,7 +266,6 @@
   .parallax-bottom-right:hover ~ .parallax-content .parallax-front {
     transform: translate3d(0.65rem, 0.65rem, 10rem);
   }
-
 
 
   .parallax-dir {
@@ -300,6 +282,29 @@
     .back-img {
       width: 25vw;
       height: 25vw;
+    }
+    button {
+      font-size: 18px;
+    }
+    h2 {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 500px) {
+    .back-img {
+      width: 40vw;
+      height: 40vw;
+    }
+    button {
+      padding: 8px 15px;
+    }
+    h2 {
+      font-size: 10px;
+    }
+  }
+  @media (max-width: 500px) {
+    button {
+      padding: 8px 10px;
     }
   }
 </style>
