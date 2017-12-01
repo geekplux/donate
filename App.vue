@@ -141,6 +141,7 @@
   button {
     flex: 1;
     border: 0;
+    border-radius: 0;
     box-sizing: border-box;
     border-right: 3px solid #000;
     margin: 0;
