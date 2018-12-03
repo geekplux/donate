@@ -4,15 +4,22 @@
   "description": "Donation page",
   "main": "index.js",
   "scripts": {
-    "dev": "vbuild -dc",
-    "build": "vbuild -c",
+    "dev": "poi --serve",
+    "build": "poi --prod",
     "deploy": "npm run build && gh-pages -d dist",
     "test": "echo 'no tests!' && npm run deploy"
   },
+  "browserslist": [
+    "ie > 8",
+    "last 4 versions"
+  ],
   "author": "geekplux@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "vbuild": "^6.24.8",
-    "gh-pages": "^0.12.0"
+    "autoprefixer": "^9.4.0",
+    "gh-pages": "^2.0.1",
+    "poi": "^12.0.0-beta.4",
+    "vue": "^2.5.17",
+    "vue-template-compiler": "^2.5.17"
   }
 }
